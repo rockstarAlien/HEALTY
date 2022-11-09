@@ -1,0 +1,76 @@
+{% extends 'base/master.html' %}
+
+{% load static %}
+
+{% block title %}
+Registro de Usuario
+{% endblock%}
+
+{% block content %}
+
+
+<div class="container h-100 mt-1">
+    <div class="row align-items-center h-100">
+        <div class="col-6 mx-auto">
+            <div class=" h-100  justify-content-center text-center">
+                <div>
+                    <h1 class="text-danger fs-5">Paso 1 de 3</h1>
+                    <h1 class="fs-4">Registro</h1>
+                    <div class="row">
+                        <div class="col h-100"><hr class="danger"></div>
+                    </div>
+                    <h1 class="fs-3">Escoje tu Perfil</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+      <div class="col-sm">
+        <div class="container h-100 mt-1">
+            <div class="row align-items-center h-100">
+                <div class="col-6 mx-auto">
+                    <div class="h-100  justify-content-center text-center">
+                        <div>
+                            <img src="{% static 'imgs/doctor.jpg' %}" width="400" height="300" class="rounded">
+                            <div class="d-grid content-center">
+                                <a class="btn btn-danger mt-5" href="{% url 'register2-view' %}">Médico</a>
+
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+      </div>
+      <div class="col-sm">
+        <div class="container h-100 mt-1">
+            <div class="row align-items-center h-100">
+                <div class="col-6 mx-auto">
+                    <div class="h-100  justify-content-center text-center">
+                        <div>
+                            <img src="{% static 'imgs/paciente.jpg' %}" width="400" height="300" class="rounded">
+                            <div class="d-grid content-center">
+                                <a class="btn btn-danger mt-5" href="{% url 'register-pacient-view' %}">Paciente</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,143 @@
+{% extends 'base/master.html' %}
+
+{% load static %}
+
+{% block title %}
+Registro de Usuario
+{% endblock %}
+
+
+
+{% block content %}
+<div class="container h-100 mt-1">
+    <div class="row align-items-center h-100">
+        <div class="col-6 mx-auto">
+            <div class=" h-100  justify-content-center text-center">
+                <div>
+                    <h1 class="text-danger fs-5">Paso 2 de 3</h1>
+                    <h1 class="fs-4">¡Crea tu Cuenta Gratis!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+      <div class="col-sm">
+        <div class="container h-100 mt-1">
+            <div class="row align-items-center h-100">
+                <div class="col-6 mx-auto">
+                    <div class="container w-100 my-5">
+                        <div class="row text-center">
+                          <div class="col-12">Registrate con</div>                
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button class="btn btn-outline-primary w-100 my-1">
+                                    <div class="row align-items-center">
+                                        <div class="col-2">
+                                            <img src="{% static 'imgs/glogo.png' %}"  width="32" alt="">
+                                        </div>
+                                        <div class="col-10 text-center">
+                                                Google
+                                        </div>
+                                    </div>
+                                </button>
+
+                                <button class="btn btn-outline-primary w-100 my-1">
+                                    <div class="row align-items-center">
+                                        <div class="col-2">
+                                            <img src="{% static 'imgs/flogo.png' %}"  width="32" alt="">
+                                        </div>
+                                        <div class="col-10 text-center">
+                                                Facebook
+                                        </div>
+                                    </div>
+                                </button>
+
+                                <button class="btn btn-outline-primary w-100 my-1">
+                                    <div class="row align-items-center">
+                                        <div class="col-2">
+                                            <img src="{% static 'imgs/tlogo.png' %}"  width="32" alt="">
+                                        </div>
+                                        <div class="col-10 text-center">
+                                                Twitter
+                                        </div>
+                                    </div>
+                                </button>
+
+                            </div>
+                        </div>
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+      </div>
+    <!--oarte derecga -->
+      <div class="col-sm">
+       
+        <form class="border border-danger" method="POST">{% csrf_token %}
+            <div class="container h-100 mt-1">
+                <div class="row align-items-center h-100">
+                    <div class="col-6 mx-auto">
+                        <div class="h-100  justify-content-center text-center">
+                            <div>
+                                <form action="#">
+                                    <div class="mb-3">
+                                        <label for="names" class="form-label">Nombre(s)</label>
+                                        <input type="text" class="form-control"  name="names" required>
+                                    </div>
+    
+                                    <div class="d-flex flex-row">
+                                        <div class="mb-3 ml-5">
+                                        <label for="apellidops" class="form-label">Apellido Paterno</label>
+                                        <input type="text" class="form-control"  name="apellidops" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="apellidoms" class="form-label">Apellido Materno</label>
+                                            <input type="text" class="form-control"  name="apellidoms" required>
+                                            </div>
+                                      </div>
+    
+                                    <div class="mb-3">
+                                        <label for="emails" class="form-label">Correo Electrónico</label>
+                                        <input type="email" class="form-control" name="emails" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="passwords" class="form-label">Contraseña</label>
+                                        <input type="password" class="form-control" name="passwords" id="pswd" required>
+                                    </div>
+    
+                                    <div class="mb-3">
+                                        <label for="password2s" class="form-label">Confirma ontraseña</label>
+                                        <input type="password" class="form-control" name="password2s" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="codigo" class="form-label">Ingresa codigo</label>
+                                        <input type="text" class="form-control" name="codigo" required>
+                                    </div>
+    
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-danger mb-4">Aceptar</button>
+    
+                                       
+                                    </div>
+    
+                                   
+    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

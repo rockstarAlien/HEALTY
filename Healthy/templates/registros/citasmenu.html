@@ -1,0 +1,32 @@
+{% extends 'base/master.html' %}
+{% load static %}
+
+
+
+
+
+{% block title %}
+Menú Citas
+
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Selcciona una opcion</h1>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm">
+            <a href="{% url 'cita-ver-view' cod %}" class="btn btn-danger">Ver Cita</a>
+        </div>
+
+        <div class="col-sm">
+            <a href="{% url 'cita-view' cod %}" class="btn btn-danger">Registrar Cita</a>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

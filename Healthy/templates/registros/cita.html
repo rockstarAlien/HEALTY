@@ -1,0 +1,92 @@
+{% extends 'base/master.html' %}
+{% load static %}
+
+
+
+
+
+{% block title %}
+Citas
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="container mt-5 border border-danger p-3">
+
+    <h1>Formulario de Citas</h1>
+    <p>Llene los datos solicitados para poder generar su cita</p>
+
+    <form action="" method="POST">{% csrf_token %}
+
+        <div class="col"> 
+            <div class="row">
+                <div class="col-sm">
+                    <div class="mb-3">
+                        <label for="sintomas" class="form-label">Sintomas</label>
+                        <input type="text" class="form-control"  name="sintomas" required>
+                    </div>
+                </div>
+    
+               
+    
+                <div class="col-sm">
+                    <div class="mb-3">
+                        <div class="col-sm">
+                            <label for="esta" class="form-label">Prioridad</label>
+                        </div>
+                        <div class="col-sm">
+                            <select class="form-select" aria-label="Default select example" id="emprioridad" name="emprioridad">
+                                <option selected>Selecciona uno</option>
+                                <option value="1">Alta</option>
+                                <option value="2">Media</option>
+                                <option value="3">Baja</option>
+        
+                              </select>
+                        </div>
+                    </div>
+                </div>
+    
+    
+              
+    
+            </div>
+    
+            <div class="row">
+    
+                <div class="col-sm">
+                    <div class="mb-3">
+                        <label for="fecha" class="form-label">Fecha</label>
+                        <input type="text" class="form-control"  name="fecha" required>
+                    </div>
+                </div>
+    
+                <div class="col-sm">
+                    <div class="mb-3">
+                        <label for="horario" class="form-label">Horario</label>
+                        <input type="text" class="form-control"  name="horario" required>
+                    </div>
+                </div>
+    
+    
+            </div>
+    
+            <div class="row">
+                <button href="" class="btn btn-danger">Registrar</button>
+            </div>
+            <p>Al presionar registrar acepta los términos de disponibilidad de citas. En caso de ser aceptada o no, se le notificará.</p>
+    
+           
+    
+        </div>
+    </form>
+
+  
+
+
+</div>
+
+
+{% endblock %}

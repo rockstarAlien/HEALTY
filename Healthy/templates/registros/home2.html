@@ -1,0 +1,124 @@
+{% extends 'base/master.html' %}
+{% load static %}
+
+
+
+
+
+{% block title %}
+Home
+
+{% endblock %}
+
+
+{% block content %}
+
+ <!-- slider section -->
+ <div class="homes container-fluid">
+    <div class="col">
+      <h1 class="text-center pt-5">
+        Hola, {{ user.nombre }}
+      </h1>
+      
+      {% if user.nombre %}
+  
+      <h1>¿Qué hacemos hoy?
+      </h1>
+
+
+      <div class="container px-4 mt-5"  >
+        <div class="row gx-5">
+
+
+          <div class="col">
+            <img src="{% static 'imgs/regla3.jpg' %}" alt="" class="neoimg">
+            <div class="p-3">
+              <a href="" class="btn btn-danger">Cambiar Medidas</a>
+            </div>
+          </div>
+
+
+
+          <div class="col">
+            <img src="{% static 'imgs/reportee.jpg' %}" alt="Responsive Image" class="neoimg">
+
+            <div class="p-3">
+              <a href="{% url 'generar_pdf' %}" class="btn btn-danger">Generar Reporte</a>
+            </div>
+          </div>
+
+          <div class="col">
+            <img src="{% static 'imgs/citaa.jpg' %}" alt="" class="neoimg">
+            <div class="p-3">
+              <a href="{% url 'cita-menu-view' usercd %}" class="btn btn-danger">Agendar Cita</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      
+
+    
+
+      
+
+
+      {% else %}
+      <p class="text-center pt-3">Healthy es un servicio web que brinda monitoreo e información personalizada sobre el problema de la diabetes.Por medio del uso de servicios web profesionales y la colaboración médicos especializados en el área, Healthy birnda un servicio sin igual</p>
+      <p class="text-center pt-3"></p>
+  
+      <div class="row mx-auto">
+        <div class="col-sm text-center">
+          <a class="btn btn-light pr-4">Saber Más</a>
+          <a class="btn btn-danger" href="{% url 'register-view' %}">Unirme</a>
+        </div>
+      </div>
+
+      {% endif %}
+
+
+        <div class="col mb-5">
+  
+          {% if user.nombre %}
+            <h1 class="text-center pt-5">¿Terminamos por hoy?</h1>
+            <div class="col-sm text-center pt-3">
+              <a href="{% url 'home-view' %}" class="text-center  btn btn-light">Cerrar Sesión</a>
+          {% else %}
+              <h1 class="text-center pt-5">¿Ya eres miembro?</h1>
+              <div class="col-sm text-center pt-3">
+              <a href="{% url 'login-view' %}" class="text-center  btn btn-light">Iniciar Sesión</a>
+              </div>
+          {% endif %}
+        
+          </div>
+        
+         
+      
+        
+      </div>
+  
+
+   
+
+ 
+
+
+    
+
+
+</div>
+
+
+
+</div>
+
+
+
+  
+ 
+  
+  
+
+{% endblock%}
+

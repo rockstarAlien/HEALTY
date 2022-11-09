@@ -1,0 +1,136 @@
+{% extends 'base/master.html' %}
+
+{% load static %}
+
+{% block title %}
+Inicio de Sesión
+<link type='text/css' href='{% static "css/margins.css" %}' rel='stylesheet'/>
+
+{% endblock %}
+
+{% block content %}
+
+<script>
+    function funcions(){
+        var hola = document.getElementById("mail").value;
+        //alert(hola);
+    }
+
+</script>
+
+<script>
+    alert('{{ message }}');
+</script>
+
+
+<link type='text/css' href='{% static "css/margins.css" %}' rel='stylesheet'/>
+
+
+<div class="container mb-4">
+    <div class="col mt-2 align-items-center">
+        <h1 class="text-center">Inicio de Sesión </h1>
+    </div>
+</div>
+
+<form method="POST">{% csrf_token %}
+
+    <div class="col">
+<!---Div main-->
+        <div class="container">
+            <div class="row">
+                <div class="row">
+    
+                    <div class="cellContainer col pr-4">
+                        <button class="btn btn-outline-primary w-100 my-1">
+                            <div class="row align-items-center">
+                                <div class="col-2">
+                                    <img src="{% static 'imgs/glogo.png' %}"  width="32" alt="">
+                                </div>
+                                <div class="col-10 text-center">
+                                        Google
+                                </div>
+                            </div>
+                        </button>
+    
+                        <button class="btn btn-outline-primary w-100 my-1">
+                            <div class="row align-items-center">
+                                <div class="col-2">
+                                    <img src="{% static 'imgs/flogo.png' %}"  width="32" alt="">
+                                </div>
+                                <div class="col-10 text-center">
+                                        Facebook
+                                </div>
+                            </div>
+                        </button>
+    
+                        <button class="btn btn-outline-primary w-100 my-1">
+                            <div class="row align-items-center">
+                                <div class="col-2">
+                                    <img src="{% static 'imgs/tlogo.png' %}"  width="32" alt="">
+                                </div>
+                                <div class="col-10 text-center">
+                                        Twitter
+                                </div>
+                            </div>
+                        </button>
+    
+                
+    
+                    </div>
+                <!---otherside-->
+    
+                
+                <div class="col border border-primary rounded">
+                    <div class="col-sm">
+                        <div class="mb-3">
+                            <label for="mail" class="form-label">Correo Electrónico</label>
+                            <input type="text" class="form-control"  name="mail" id="mail" required>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="mb-3">
+                            <label for="pass" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control"  name="pass" required>
+                        </div>
+                    </div>
+                    <div class="col-sm align-items-center text-center">
+                        <label class="form-label">¿Olvidaste tu Contraseña?</label>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-sm">
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                      Recordarme
+                                    </label>
+                                  </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-sm">
+                            <div class="mb-3">
+                                <button class="btn btn-danger">Iniciar Sesión</button>
+                            </div>
+                        </div>
+                        
+    
+                    </div>
+    
+                    <div class="col-sm mt-5">
+                        <p class="form-label">Está página está protegida por Google recaptcha para asegurar que no eres un robot </p>
+                    </div>
+    
+                </div>
+    
+    
+                </div>
+               
+    
+            </div>
+        </div>
+    </div>
+</form>
+
+
+{% endblock %}

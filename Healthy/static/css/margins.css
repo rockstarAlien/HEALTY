@@ -1,0 +1,17 @@
+.mt-6 {
+    margin-top: 9rem; 
+}
+
+
+.cellContainer {
+    width: 25%;
+    float: left;
+  }
+
+
+
+  .roundeds-xl {
+    border-radius: 4.5rem;
+  }
+
+  

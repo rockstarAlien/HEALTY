@@ -1,0 +1,283 @@
+{% extends 'base/master.html' %}
+{% load static %}
+
+{% block title %}
+Registro Medico
+{% endblock %}
+
+
+
+{% block content %}
+<div class="container h-100 mt-1">
+    <div class="row align-items-center h-100">
+        <div class="col-6 mx-auto">
+            <div class=" h-100  justify-content-center text-center">
+                <div>
+                    <h1 class="text-danger fs-5">Paso 3 de 3</h1>
+                    <h1 class="fs-3 mt-4">Registro del Médico</h1>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-2">
+    
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#home">Datos Personales</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">Datos Profesionales</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#referencia">Referencias</a></li>
+        <li class="nav_item"><a class="nav-link" data-bs-toggle="tab" href="#final">Terminar</a></li>
+
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="home">
+            <div class="row">
+
+                    <div class="col">
+            <!---Primer form-->
+                        <form method="POST">{% csrf_token %}
+                            <div class="container border border-danger">
+                                <div class="row">
+                                  <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label for="namess" class="form-label">Nombre(s)</label>
+                                        <input type="text" class="form-control"  name="namess" value="{{ user.nombre }}">
+                                    </div>
+                                  </div>
+                                  <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label for="appelidopp" class="form-label">Apellido Paterno</label>
+                                        <input type="text" class="form-control"  name="apellidopp" value="{{ user.apellidop }}">
+                                    </div>
+                                  </div>
+                                  <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label for="apellidomm" class="form-label">Apellido Materno</label>
+                                        <input type="text" class="form-control"  name="apellidomm" value="{{ user.apellidom }}">
+                                    </div>
+                                  </div>
+                                </div>
+    
+                             <!----segundo--->   
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <div class="dropdown">
+                                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                  Genero
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                  <a class="dropdown-item" href="#">Masculino</a>
+                                                  <a class="dropdown-item" href="#">Femenino</a>
+                                                  <a class="dropdown-item" href="#">Otro</a>
+                                                </div>
+                                              </div>
+                                        </div>
+                                        <div class="col-sm">
+                                          <div class="mb-3">
+                                              <label for="telefonos" class="form-label">Telefono de Contacto</label>
+                                              <input type="text" class="form-control"  name="telefonos" value="{{ user.telefono }}">
+                                          </div>
+                                        </div>
+                                        <div class="col-sm">
+                                          <div class="mb-3">
+                                              <label for="apellidomm" class="form-label">Fecha de Nacimiento</label>
+    
+                                              <section class="col-sm-12">
+                                                <div class="form-group">
+                                                    <div class='input-group date' id='datetimepicker1'>
+                                                        <input type='text' class="form-control" />
+                                                        <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                    
+                                            </section>
+                                          </div>
+                                        </div>
+                                      </div>
+                                </div>
+                                <!----tercerto--->   
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <div class="mb-3">
+                                                <label for="cp" class="form-label">Código Postal</label>
+                                                <input type="text" class="form-control"  name="cp" value="{{ user.codigopostal }}">
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-sm">
+                                          <div class="mb-3">
+                                              <label for="estado" class="form-label">Estado</label>
+                                              <input type="text" class="form-control"  name="estado" value="{{ user.estado }}">
+                                          </div>
+                                        </div>
+                                        <div class="col-sm">
+                                          <div class="mb-3">
+                                            <label for="municipio" class="form-label">Municipio</label>
+                                            <input type="text" class="form-control"  name="municipio" value="{{ user.municipio }}">
+                                          </div>
+                                        </div>
+                                      </div>
+                                </div>
+    
+                                  <!----Cuarto--->   
+                                  <div class="col">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <div class="mb-3">
+                                                <label for="calle" class="form-label">Calle</label>
+                                                <input type="text" class="form-control"  name="calle" value="{{ user.calle }}">
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-sm">
+                                          <div class="mb-3">
+                                              <label for="numex" class="form-label">Número Exterior</label>
+                                              <input type="text" class="form-control"  name="numex" value="{{ user.numex }}">
+                                          </div>
+                                        </div>
+                                        <div class="col-sm">
+                                          <div class="mb-3">
+                                            <label for="numint" class="form-label">Número interior(opcional)</label>
+                                            <input type="text" class="form-control"  name="numint" value="{{ user.numint }}">
+                                          </div>
+                                        </div>
+                                      </div>
+
+
+                                      <div class="col mb-4">
+                                        <button type="submit" class="btn btn-danger" name="savePersonal">Guardar</button>
+                                      </div>
+                                </div>
+                                
+    
+                              </div>
+
+                              
+                        </form>
+
+                       
+
+
+
+                    </div>
+                               
+            </div>
+        </div>
+<!---SEcond profesional pane-->
+        <div class="tab-pane" id="profile">
+          <form method="POST">{% csrf_token %}
+
+            <div class="row">
+              <div class="col">
+                  <div class="col">
+                      <div class="row">
+                          <div class="col-sm">
+                              <div class="mb-3">
+                                  <label for="universidad" class="form-label">Universidad</label>
+                                  <input type="text" class="form-control"  name="universidad" value="{{ profesion.universidad }}">
+                              </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-sm">
+                              <div class="mb-3">
+                                  <label for="carrera" class="form-label">Carrera</label>
+                                  <input type="text" class="form-control"  name="carrera" value="{{ profesion.carrera }}">
+                              </div>
+                          </div>
+                          <div class="col-sm">
+                              <div class="mb-3">
+                                  <label for="especialidad" class="form-label">Especialidad</label>
+                                  <input type="text" class="form-control"  name="especialidad" value="{{ profesion.especialidad }}">
+                              </div>
+                          </div>
+                        </div>
+                        <div class="col-sm">
+                          <div class="mb-3">
+                              <label for="cedula" class="form-label">Cedula Profesional</label>
+                              <input type="text" class="form-control"  name="cadula" value="{{ profesion.cedula }}">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col mb-4">
+                    <button type="submit" class="btn btn-danger" name="saveProfesional">Aceptar</button>
+                  </div>
+                  
+              </div>
+              
+          </div>
+          </form>
+           
+        </div>
+<!---Tercer pane referencia-->
+        <div class="tab-pane" id="referencia">
+          <form method="POST">{% csrf_token %}
+            <div class="row">
+              <div class="col">
+
+                  <div class="col-sm">
+                      <div class="mb-3">
+                          <label for="referencia" class="form-label">Referencia 1</label>
+                          <input type="text" class="form-control"  name="referencia" value="{{ reference.referencia1 }}">
+                      </div>
+                  </div>
+
+                  <div class="col-sm">
+                      <div class="mb-3">
+                          <label for="referencia2" class="form-label">Referencia 2</label>
+                          <input type="text" class="form-control"  name="referencia2" value="{{ reference.referencia2 }}">
+                      </div>
+                  </div>
+
+                  <div class="col-sm">
+                      <div class="mb-3">
+                          <label for="referencia3" class="form-label outline-danger">Referencia 3</label>
+                          <input type="text" class="form-control"  name="referencia3" value="{{ reference.referencia3 }}">
+                      </div>
+                  </div>
+
+
+                  <div class="col mb-4">
+                    <button type="submit" class="btn btn-danger" name="saveReferencias">Aceptar</button>
+                  </div>
+                  
+              </div>
+
+              
+          </div>
+
+          </form>
+
+           
+        </div>
+
+<!---CUARTO PANE end -->
+        <div class="tab-pane" id="final">
+
+          <a class="btn btn-danger mt-4" href="{% url 'login-view' %}">Finalizar</a>
+        </div>
+
+
+    </div>
+
+    <div class="col-auto mt-3">
+       
+    </div>
+
+
+
+</div>
+
+{% endblock %}
+
+
+<script src="{% static 'js/algunos.js' %}"></script>
+

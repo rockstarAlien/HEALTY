@@ -1,0 +1,68 @@
+{% extends 'base/master.html' %}
+{% load static %}
+
+
+
+
+
+{% block title %}
+Home
+
+
+
+</style>
+
+{% endblock %}
+
+
+
+
+
+
+{% block content %}
+
+
+
+  
+ <!-- slider section -->
+<div class="homes container-fluid">
+  <div class="col">
+    <h1 class="text-center pt-5">
+      Bienvenido a Healthy
+    </h1>
+
+    <p class="text-center pt-3">Healthy es un servicio web que brinda monitoreo e información personalizada sobre el problema de la diabetes.Por medio del uso de servicios web profesionales y la colaboración médicos especializados en el área, Healthy birnda un servicio sin igual</p>
+    <p class="text-center pt-3"></p>
+
+    <div class="row mx-auto">
+      <div class="col-sm text-center">
+        <a class="btn btn-light pr-4">Saber Más</a>
+        <a class="btn btn-danger" href="{% url 'register-view' %}">Unirme</a>
+      </div>
+    </div>
+
+    
+  </div>
+
+  <div class="col">
+
+    <h1 class="text-center pt-5">¿Ya eres miembro?</h1>
+    <div class="col-sm text-center pt-3">
+      <a href="{% url 'login-view' %}" class="text-center  btn btn-light">Iniciar Sesión</a>
+
+    </div>
+
+  </div>
+
+ 
+
+
+
+</div>
+
+
+
+
+
+{% endblock%}
+

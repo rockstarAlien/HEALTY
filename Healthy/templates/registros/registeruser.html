@@ -1,0 +1,425 @@
+{% extends 'base/master.html' %}
+{% load static %}
+
+{% block title %}
+Registro Medico
+{% endblock %}
+
+
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+
+
+
+<div class="container h-100 mt-1">
+    <div class="row align-items-center h-100">
+        <div class="col-6 mx-auto">
+            <div class=" h-100  justify-content-center text-center">
+                <div>
+                    <h1 class="text-danger fs-5">Paso 3 de 3</h1>
+                    <h1 class="fs-3 mt-4">Registro del Paciente</h1>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-2">
+  
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#home">Datos Personales</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">Datos Médicos</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#referencia">Contactos de Emergencia</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#final">Terminar</a></li>
+
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="home">
+            <div class="row">
+<!--PRIMER PANE-->
+                <form method="POST">{% csrf_token %}
+                    <div class="col">
+                        <div class="container border border-danger">
+                            <div class="row">
+                              <div class="col-sm">
+                                <div class="mb-3">
+                                    <label for="namess" class="form-label">Nombre(s)</label>
+                                    <input type="text" class="form-control"  name="namess" value="{{ paciente.nombre }}">
+                                </div>
+                              </div>
+                              <div class="col-sm">
+                                <div class="mb-3">
+                                    <label for="appelidopp" class="form-label">Apellido Paterno</label>
+                                    <input type="text" class="form-control"  name="apellidopp" value="{{ paciente.apellidop }}">
+                                </div>
+                              </div>
+                              <div class="col-sm">
+                                <div class="mb-3">
+                                    <label for="apellidomm" class="form-label">Apellido Materno</label>
+                                    <input type="text" class="form-control"  name="apellidomm" value="{{ paciente.apellidom }}">
+                                </div>
+                              </div>
+                            </div>
+
+                         <!----segundo--->   
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-sm">
+
+
+                                        <select class="form-select" aria-label="Default select example" id="empid" name="empname">
+                                            <option selected>Genero</option>
+                                            <option value="1">Hombre</option>
+                                            <option value="2">Mujer</option>
+                                            <option value="3">Otro</option>
+                                          </select>
+                                    </div>
+
+
+                                    <div class="col-sm">
+                                      <div class="mb-3">
+                                          <label for="appelidopp" class="form-label">Telefono de Contacto</label>
+                                          <input type="text" class="form-control"  name="telefono" value="{{ paciente.telefono }}">
+                                      </div>
+                                    </div>
+                                    <div class="col-sm">
+                                      <div class="mb-3">
+                                          <label for="apellidomm" class="form-label">Fecha de Nacimiento</label>
+
+                                          <section class="col-sm-12">
+                                            <div class="form-group">
+                                                <div class='input-group date' id='datetimepicker1'>
+                                                    <input type='text' class="form-control" />
+                                                    <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                
+                                        </section>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+                            <!----tercerto--->   
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <div class="mb-3">
+                                            <label for="cp" class="form-label">Código Postal</label>
+                                            <input type="text" class="form-control"  name="cp" value="{{ paciente.codigopostal }}">
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-sm">
+                                      <div class="mb-3">
+                                          <label for="estado" class="form-label">Estado</label>
+                                          <input type="text" class="form-control"  name="estado" value="{{ paciente.estado }}">
+                                      </div>
+                                    </div>
+                                    <div class="col-sm">
+                                      <div class="mb-3">
+                                        <label for="municipio" class="form-label">Municipio</label>
+                                        <input type="text" class="form-control"  name="municipio" value="{{ paciente.municipio }}">
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+
+                              <!----Cuarto--->   
+                              <div class="col">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <div class="mb-3">
+                                            <label for="calle" class="form-label">Calle</label>
+                                            <input type="text" class="form-control"  name="calle" value="{{ paciente.calle }}">
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-sm">
+                                      <div class="mb-3">
+                                          <label for="numex" class="form-label">Número Exterior</label>
+                                          <input type="text" class="form-control"  name="numex" value="{{ paciente.numex }}">
+                                      </div>
+                                    </div>
+                                    <div class="col-sm">
+                                      <div class="mb-3">
+                                        <label for="numint" class="form-label">Número interior(opcional)</label>
+                                        <input type="text" class="form-control"  name="numint" value="{{ paciente.numint }}">
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+
+                            <div class="col mb-4">
+                                <button type="submit" class="btn btn-danger" name="savePacientPersonal">Aceptar</button>
+                              </div>
+                          </div>
+                    </div>                  
+                </form> 
+            </div>
+        </div>
+<!---SEGUNDO PANE-->
+        <div class="tab-pane" id="profile">
+            <div class="row">
+                <form method="POST">{% csrf_token %}
+                    <div class="col">
+                        <div class="col">
+                              <div class="row">
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label for="peso" class="form-label">Peso</label>
+                                        <input type="text" class="form-control"  name="peso" value="{{ medical.peso }}">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label for="esta" class="form-label">Estatura</label>
+                                        <input type="text" class="form-control"  name="estatura" value="{{ medical.estatura }}">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label for="cintura" class="form-label">Cintura</label>
+                                        <input type="text" class="form-control"  name="cintura" value="{{ medical.estatura }}">
+                                    </div>
+                                </div>
+
+                               <div class="col-sm">
+                                    <div class="mb-3">
+                                        <div class="col-sm">
+                                            <label for="esta" class="form-label">Alimentacion</label>
+                                        </div>
+                                        <div class="col-sm">
+                                            <select class="form-select" aria-label="Default select example" id="empalimentacion" name="empalimentacion">
+                                                <option selected>Selecciona uno</option>
+                                                <option value="1">Suelo comer muchas calorias y azucares</option>
+                                                <option value="2">Suelo comer algo de calorias y azucares</option>
+                                                <option value="3">El consumo de azucares y calorias es minimo</option>
+
+                                              </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <div class="col-sm">
+                                            <label for="esta" class="form-label">Actividad Física</label>
+                                        </div>
+                                        <div class="col-sm">
+                                            <select class="form-select" aria-label="Default select example" id="empactividad" name="empactividad">
+                                                <option selected>Selecciona uno</option>
+                                                <option value="1">Suelo realizar ejercicio seguido</option>
+                                                <option value="2">Suelo realizar poco ejercicio</option>
+                                                <option value="3">No hago ejercicio</option>
+
+                                              </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                              </div>
+                            <div class="row">
+    
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <div class="col-sm">
+                                            <label for="esta" class="form-label">Tipo de Diabetes</label>
+                                        </div>
+                                        <div class="col-sm">
+    
+                                            <select class="form-select" aria-label="Default select example" id="empdiabetes" name="empdiabetes">
+                                                <option selected>Selecciona una</option>
+                                                <option value="1">Tipo 1</option>
+                                                <option value="2">Tipo 2</option>
+                                                <option value="3">Gestacional</option>
+                                                <option value="4">LADA</option>
+                                              </select>
+    
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm">
+                                    <div class="col-sm">
+                                        <div class="mb-3">
+                                            <div class="col-sm">
+                                                <label for="esta" class="form-label">Grupo Sanguineo</label>
+                                            </div>
+                                            <div class="col-sm">
+                                                <select class="form-select" aria-label="Default select example" id="empsangre" name="empsangre">
+                                                    <option selected>Selecciona uno</option>
+                                                    <option value="1">A</option>
+                                                    <option value="2">B</option>
+                                                    <option value="3">AB</option>
+                                                    <option value="4">O</option>
+                                                  </select>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+    
+                                </div>
+
+                                <div class="col-sm">
+                                    <div class="col-sm">
+                                        <div class="mb-3">
+                                            <div class="col-sm">
+                                                <label for="esta" class="form-label">Antecedentes</label>
+                                            </div>
+                                            <div class="col-sm">
+                                                <select class="form-select" aria-label="Default select example" id="empantecedentes" name="empantecedentes">
+                                                    <option selected>Selecciona uno</option>
+                                                    <option value="1">Un familiar tiene diabetes</option>
+                                                    <option value="2">Más de un familiar tiene diabtes</option>
+                                                  </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               
+
+                               
+<!--Padecimientos pane-->
+                            <div class="form-horizontal mb-4">
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <textarea class="form-control" rows="3" placeholder="Escribe aquí" name="padecimiento"   required>{{ medical.padecimientos }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+<!---Cuarta linea -->
+<div class="col-sm">
+    <div class="mb-3">
+        <div class="col-sm">
+            <label for="esta" class="form-label">Sueño</label>
+        </div>
+        <div class="col-sm">
+            <select class="form-select" aria-label="Default select example" id="empsueno" name="empsueno">
+                <option selected>Selecciona uno</option>
+                <option value="1">Tengo complicaciones para dormir</option>
+                <option value="2">Tengo alguna enfermedad relacionada a la apnea</option>
+                <option value="3">No tengo problemas para dormir</option>
+
+              </select>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm">
+    <div class="mb-3">
+        <div class="col-sm">
+            <label for="esta" class="form-label">Humo</label>
+        </div>
+        <div class="col-sm">
+            <select class="form-select" aria-label="Default select example" id="emphumo" name="emphumo">
+                <option selected>Selecciona uno</option>
+                <option value="1">Suelo fumar mucho</option>
+                <option value="2">Algunos familares fuman</option>
+                <option value="3">Ni yo ni cercanos fumamos</option>
+
+              </select>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-sm">
+    <div class="mb-3">
+        <label for="peso" class="form-label">Presion Arterial</label>
+        <input type="text" class="form-control"  name="arterial" value="{{ medical.peso }}">
+    </div>
+</div>
+
+<div class="col-sm">
+    <div class="mb-3">
+        <label for="peso" class="form-label">Colesterol</label>
+        <input type="text" class="form-control"  name="colesterol" value="{{ medical.peso }}">
+    </div>
+</div>
+
+<div class="col-sm">
+    <div class="mb-3">
+        <label for="peso" class="form-label">Triglicelidos</label>
+        <input type="text" class="form-control"  name="triglicelidos" value="{{ medical.peso }}">
+    </div>
+</div>
+                      
+                        
+                           
+    
+                        </div>  
+                       
+ <!--Buton aceptar-->                       
+                        <div class="col mb-4 mt-4">
+                            <button type="submit" class="btn btn-danger" name="saveMedical">Aceptar</button>
+                        </div>      
+                      
+                        </div>
+                        
+                    </div>
+                </form>               
+                       
+            </div>
+        </div>
+<!---TERCER PANE -->
+        <div class="tab-pane" id="referencia">
+            <div class="row">
+                <form method="POST">{% csrf_token %}
+                    <div class="col">
+                        <div class="col-sm">
+                            <div class="mb-3">
+                                <label for="referencia" class="form-label">Contacto 1</label>
+                                <input type="text" class="form-control"  name="referencia" value="{{ contacto.contacto1 }}">
+                            </div>
+                        </div>
+    
+                        <div class="col-sm">
+                            <div class="mb-3">
+                                <label for="referencia2" class="form-label">Contacto 2</label>
+                                <input type="text" class="form-control"  name="referencia2" value="{{ contacto.contacto2 }}">
+                            </div>
+                        </div>
+    
+                        <div class="col-sm">
+                            <div class="mb-3">
+                                <label for="referencia3" class="form-label outline-danger">Contacto 3</label>
+                                <input type="text" class="form-control"  name="referencia3" value="{{ contacto.contacto3 }}">
+                            </div>
+
+
+                            <div class="col mb-4">
+                                <button type="submit" class="btn btn-danger" name="saveContactos">Aceptar</button>
+                              </div>
+                        </div>
+                        
+                    </div>
+                </form>
+              
+            </div>
+        </div>
+<!--CUARTO PANE-->
+
+<div class="tab-pane" id="final">
+    
+            <a class="btn btn-danger mt-4" href="{% url 'login-view' %}">Finalizar</a>
+</div>
+       
+    </div>
+
+    
+</div>
+
+{% endblock %}
+
+
+<script src="{% static 'js/algunos.js' %}"></script>

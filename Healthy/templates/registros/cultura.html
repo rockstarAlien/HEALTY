@@ -1,0 +1,76 @@
+{% extends 'base/master.html' %}
+{% load static %}
+
+{% block title %}
+Cultura diabetes
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="col">
+        <h1 class="mt-4 mb-5">Tabla de medidas Recomendadas</h1>
+<!---TABLA DE MEDIDAS-->
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Mediciones</th>
+                <th scope="col">Mínimos</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Estatura</td>
+                <td>{{ medical.estatura }}</td>
+                <td>{{ medical.max_estatura }}</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Peso</td>
+                <td>{{ medical.peso }}</td>
+                <td>{{ medical.max_peso }}</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Cintura</td>
+                <td>{{ medical.cintura }}</td>
+                <td>{{ medical.max_cintura }}</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Presion Arterial</td>
+                <td>{{ medical.arterial }}</td>
+                <td>{{ medical.max_arterial }}</td>
+              </tr>
+
+              <tr>
+                <th scope="row">3</th>
+                <td>Colesterol</td>
+                <td>{{ medical.colesterol }}</td>
+                <td>{{ medical.max_colesterol }}</td>
+
+              </tr>
+
+              <tr>
+                <th scope="row">3</th>
+                <td>Triglicelidos</td>
+                <td>{{ medical.triglicelidos }}</td>
+                <td>{{ medical.max_triglicelidos }}</td>
+
+              </tr>
+            </tbody>
+          </table>
+
+        <p class="mt-3 text-justify">Los siguientes datos son basados en las meiddas promedio de un hombre méxico de 35 años.</p>
+        <p class="mt-3 text-justify">¿No son tus datos? Checa nuestra tabla totalmente personalizada para ti!</p>
+        <button class="btn btn-danger">LLevame</button>
+    </div>
+</div>
+
+
+
+{% endblock %}

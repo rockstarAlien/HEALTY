@@ -1,0 +1,34 @@
+
+
+.homes{
+
+    background:
+    /* top, transparent black, faked with gradient */ 
+    linear-gradient(
+      rgba(0, 0, 0, 0.7), 
+      rgba(0, 0, 0, 0.7)
+    ),
+    /* bottom, image */
+    url(../imgs/fondo.jpg);
+
+
+    height: 260vh;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+.homes h1{
+    color: rgb(182, 182, 19);
+}
+
+.homes h2{
+    color: beige;
+}
+
+.homes p{
+    color: antiquewhite;
+}
+
+

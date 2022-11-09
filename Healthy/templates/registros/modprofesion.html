@@ -1,0 +1,59 @@
+{% extends 'base/master.html' %}
+{% load static %}
+
+{% block title %}
+Modificar DATOS PROFESIONALES
+{% endblock %}
+
+{% block content %}
+<form method="POST">{% csrf_token %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="mb-3">
+                                <label for="universidad" class="form-label">Universidad</label>
+                                <input type="text" class="form-control"  name="universidad" value="{{ profesion.universidad }}">
+                            </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-sm">
+                            <div class="mb-3">
+                                <label for="carrera" class="form-label">Carrera</label>
+                                <input type="text" class="form-control"  name="carrera" value="{{ profesion.carrera }}">
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="mb-3">
+                                <label for="especialidad" class="form-label">Especialidad</label>
+                                <input type="text" class="form-control"  name="especialidad" value="{{ profesion.especialidad }}">
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col-sm">
+                        <div class="mb-3">
+                            <label for="cedula" class="form-label">Cedula Profesional</label>
+                            <input type="text" class="form-control"  name="cedula" value="{{ profesion.cedula }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                  <button type="submit" class="btn btn-danger" h>Aceptar</button>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+          
+          </form>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,241 @@
+{% extends 'base/master.html' %}
+
+{% load static %}
+
+{% block title %}
+<h1>Perfil de Usuario</h1>
+{% endblock %}
+
+{% block content %}
+
+<div class="container mb-4">
+    <div class="col mt-2 align-items-center">
+        <h1 class="text-center">Perfil </h1>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <div class="card" style="width: 25rem;">
+                <img class="card-img-top" src="{% static 'imgs/paciente.jpg' %}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">¡Bienvenido!</h5>
+                  <p class="card-text">{{ user.nombre }} {{ user.apellidop }} {{ user.apellidom }}</p>
+                  <p>{{ profesion.especialidad }}</p>
+
+                  <div class="d-flex align-items-center">
+                    <div class="box">
+                        <label for="">Teléfono</label>
+                        <p for="">{{ user.telefono }}</p>
+                        <label for="">Email</label>
+                        <p>{{ user2.email }}</p>
+                        <label for="">Cédula Profesional</label>
+                        <p>{{ profesion.cedula }}</p>
+
+                    </div>
+                </div>
+                 
+                  
+                </div>
+              </div>
+
+        </div>
+
+        <div class="col-sm">
+<!---SEGUNDA CARTA-->
+            <div class="card" style="width: 38rem;">
+                <div class="card-body">
+                  
+            <div class="container">
+                <h6 class="card-title">Datos de Contacto</h6>
+                <div class="row">
+                    <div class="col"><hr></div>
+                    
+                </div>
+                <label for="text" class="form-label">Nombre Completo</label>
+                <div class="col-sm">
+                    <label for="text" class="form-label">{{ user.nombre }}</label>
+                    <label for="text" class="form-label">{{ user.apellidop }}</label>
+                    <label for="text" class="form-label">{{ user.apellidom }}</label>
+
+                </div>
+                <label for="text" class="form-label">Email</label>
+                <div class="col">
+                    <label for="text" class="form-label">{{ user2.email }}</label>
+                </div>
+                <label for="text" class="form-label">Contraseña</label>
+                <div class="col">
+                    <input type="password" name="" id="" value="{{ user2.password }}" disabled="True">
+                </div>
+                <label for="text" class="form-label password">Número de Telefono</label>
+                <div class="col">
+                    <label for="text" class="form-label">{{ user.telefono }}</label>
+
+                </div>
+                <div class="col">
+                    <a class="btn btn-danger" href="{% url 'modify-contact-view' user.codigo %}">Modificar Datos</a>
+                </div>
+                <div class="row">
+                    <div class="col"><hr></div>
+                    
+                </div>
+
+                <h6 class="card-title">Datos Personolaes</h6>
+                <div class="row">
+                    <div class="col"><hr></div>
+                    
+                </div>
+                <div class="col">
+                    <label for="text" class="form-label password">Fecha de Nacimiento</label>
+                    <div class="col">
+                        <label for="text" class="form-label password">{{ user.fecha }}</label>
+
+                    </div>
+
+                </div>
+                <div class="col">
+                    <label for="text" class="form-label password">Genero</label>
+                    <div class="col">
+                        <label for="text" class="form-label password">{{ user.gender }}</label>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="text" class="form-label ">Estado</label>
+                        <div class="col">
+                            <label for="text" class="form-label ">{{ user.estado }}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <label for="text" class="form-label password">Municipio</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ user.municipio }}</label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="text" class="form-label ">CP</label>
+                        <div class="col">
+                            <label for="text" class="form-label ">{{ user.codigopostal }}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <label for="text" class="form-label password">Calle</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ user.calle }}</label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="text" class="form-label ">Número Interior</label>
+                        <div class="col">
+                            <label for="text" class="form-label ">{{ user.numint }}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <label for="text" class="form-label password">Número Exterior</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ user.numex }}</label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col">
+                    <a class="btn btn-danger" href="{% url 'modify-contact-view' user.codigo %}">Modificar Datos</a>
+                </div>
+
+
+<!---DATOS PROFESIONALES-->
+                <h6 class="card-title mt-3">Datos Profesionales</h6>
+                <div class="row">
+                    <div class="col"><hr></div>               
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="text" class="form-label ">Universidad</label>
+                        <div class="col">
+                            <label for="text" class="form-label ">{{ profesion.universidad }}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <label for="text" class="form-label password">Carrera</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ profesion.carrera }}</label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="text" class="form-label ">Especialidad</label>
+                        <div class="col">
+                            <label for="text" class="form-label ">{{ profesion.especialidad }}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <label for="text" class="form-label password">Cédula Profesional</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ profesion.cedula }}</label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col">
+                    <a class="btn btn-danger" href="{% url 'modify-profesion-view' user.codigo %}">Modificar Datos</a>
+                </div>
+
+            </div>
+         
+                </div>
+              </div>
+
+
+
+
+
+                
+            
+            
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+{% endblock %}

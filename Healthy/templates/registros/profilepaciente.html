@@ -1,0 +1,338 @@
+{% extends 'base/master.html' %}
+
+{% load static %}
+
+{% block title %}
+<h1>Perfil del Paciente</h1>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container mb-4">
+    <div class="col mt-2 align-items-center">
+        <h1 class="text-center">Perfil </h1>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+<!---PRIMERA CARTA-->
+            <div class="card" style="width: 25rem;">
+                <img class="card-img-top" src="{% static 'imgs/paciente.jpg' %}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">¡Bienvenido!</h5>
+                  <p class="card-text">{{ user.nombre }} {{ user.apellidop }} {{ user.apellidom }}</p>
+              
+
+                  <div class="d-flex align-items-center">
+                    <div class="box">
+                        <label for="">Teléfono</label>
+                        <p for="">{{ user.telefono }}</p>
+                        <label for="">Email</label>
+                        <p>{{ user2.email }}</p>
+                        <label for="">Paciente con Diabetes:</label>
+                        <p>{{ medical.diabetes }}</p>
+
+                    </div>
+                </div>
+
+                <a class="btn btn-danger" href="{% url 'home-view' %}">Cerrar Sesión</a>
+                 
+                  
+                </div>
+              </div>
+
+        </div>
+
+        <div class="col-sm">
+<!---SEGUNDA CARTA-->
+            <div class="card" style="width: 38rem;">
+                <div class="card-body">
+                  
+            <div class="container">
+            <!--DaATOS CONTACOTS -->
+                <h6 class="card-title">Datos de Contacto</h6>
+                <div class="row">
+                    <div class="col"><hr></div>
+                    
+                </div>
+                <label for="text" class="form-label">Nombre Completo</label>
+                <div class="col-sm">
+                    <label for="text" class="form-label">{{ user.nombre }}</label>
+                    <label for="text" class="form-label">{{ user.apellidop }}</label>
+                    <label for="text" class="form-label">{{ user.apellidom }}</label>
+
+                </div>
+                <label for="text" class="form-label">Email</label>
+                <div class="col">
+                    <label for="text" class="form-label">{{ user2.email }}</label>
+                </div>
+                <label for="text" class="form-label">Contraseña</label>
+                <div class="col">
+                    <input type="password" name="" id="" value="{{ user2.password }}" disabled="True">
+                </div>
+                <label for="text" class="form-label password">Número de Telefono</label>
+                <div class="col">
+                    <label for="text" class="form-label">{{ user.telefono }}</label>
+
+                </div>
+                <div class="col">
+                    <a class="btn btn-danger" href="">Modificar Datos</a>
+                </div>
+                <div class="row">
+                    <div class="col"><hr></div>
+                    
+                </div>
+                <!---DATOS PERSONALES -->
+                <h6 class="card-title">Datos Personolaes</h6>
+                <div class="row">
+                    <div class="col"><hr></div>
+                    
+                </div>
+                <div class="col">
+                    <label for="text" class="form-label password">Fecha de Nacimiento</label>
+                    <div class="col">
+                        <label for="text" class="form-label password">{{ user.fecha }}</label>
+
+                    </div>
+
+                </div>
+                <div class="col">
+                    <label for="text" class="form-label password">Genero</label>
+                    <div class="col">
+                        <label for="text" class="form-label password">{{ user.gender }}</label>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="text" class="form-label ">Estado</label>
+                        <div class="col">
+                            <label for="text" class="form-label ">{{ user.estado }}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <label for="text" class="form-label password">Municipio</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ user.municipio }}</label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="text" class="form-label ">CP</label>
+                        <div class="col">
+                            <label for="text" class="form-label ">{{ user.codigopostal }}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <label for="text" class="form-label password">Calle</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ user.calle }}</label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="text" class="form-label ">Número Interior</label>
+                        <div class="col">
+                            <label for="text" class="form-label ">{{ user.numint }}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <label for="text" class="form-label password">Número Exterior</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ user.numex }}</label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col">
+                    <a class="btn btn-danger" href="">Modificar Datos</a>
+                </div>
+
+
+<!---DATOS PROFESIONALES-->
+                <h6 class="card-title mt-3">Datos Médicos</h6>
+                <div class="row">
+                    <div class="col"><hr></div>               
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="text" class="form-label ">Peso</label>
+                        <div class="col">
+                            <label for="text" class="form-label ">{{ medical.peso }}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm">
+                        <label for="text" class="form-label password">Estatura</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ medical.estatura }}</label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+                        <label for="text" class="form-label ">Diabetes</label>
+                        <div class="col">
+                            <label for="text" class="form-label ">{{ medical.diabetes }}</label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--seconda medical line-->
+                <div class="row">
+                  
+                    <div class="col-sm">
+                        <label for="text" class="form-label password">Grupo Sanguineo</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ medical.gruposangre }}</label>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <label for="text" class="form-label password">Cintura</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ medical.cintura }}</label>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <label for="text" class="form-label password">Alimentación</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ medical.alimentacion }}</label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--third medical line-->
+                <div class="row">
+                  
+                    <div class="col-sm">
+                        <label for="text" class="form-label password">Actividad</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ medical.actividad }}</label>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <label for="text" class="form-label password">Antecedentes</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ medical.antecedentes }}</label>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <label for="text" class="form-label password">Sueño</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ medical.sueno }}</label>
+                        </div>
+                    </div>
+
+                </div>
+
+                
+                <!--fourth medical line-->
+                <div class="row">
+                  
+                    <div class="col-sm">
+                        <label for="text" class="form-label password">Humo</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ medical.humo }}</label>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <label for="text" class="form-label password">Arterial</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ medical.arterial }}</label>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <label for="text" class="form-label password">Colesterol</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ medical.colesterol }}</label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--fifth medical line-->
+                  <div class="row">
+                  
+                    <div class="col-sm">
+                        <label for="text" class="form-label password">Triglicedilos</label>
+                        <div class="col">
+                            <label for="text" class="form-label password">{{ medical.triglice }}</label>
+                        </div>
+                    </div>
+                  
+
+                </div>
+
+                <div class="col">
+                    <a class="btn btn-danger" href="{% url 'update-pacient-medical-view' user.codigo %}">Actualizar Datos</a>
+                </div>
+
+            </div>
+         
+                </div>
+              </div>     
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 25rem;">
+            <img class="card-img-top" src="{% static 'imgs/paciente.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">¡Bienvenido!</h5>
+              <p class="card-text">{{ user.nombre }} {{ user.apellidop }} {{ user.apellidom }}</p>
+          
+
+              <div class="d-flex align-items-center">
+                <div class="box">
+                    <label for="">Teléfono</label>
+                    <p for="">{{ user.telefono }}</p>
+                    <label for="">Email</label>
+                    <p>{{ user2.email }}</p>
+                    <label for="">Paciente con Diabetes:</label>
+                    <p>{{ medical.diabetes }}</p>
+
+                </div>
+            </div>
+             
+              
+            </div>
+          </div>
+    </div>
+
+
+</div>
+
+
+{% endblock %}
+
